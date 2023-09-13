@@ -1,3 +1,19 @@
+**// A token Dapp built using Motoko with a react front end and implementing authorisation using Internet Identity.//**
+
+Claim free tokens 
+Check your balance
+Transfer tokens to another account.
+
+This version only works if deployed to the ICP and you have enough cycles avalible.
+
+
+
+
+
+
+
+
+
 # Check your Balance
 
 1. Find out your principal id:
@@ -8,7 +24,7 @@ dfx identity get-principal
 
 2. Save it somewhere.
 
-e.g. My principal id is: 27r3u-mj4ta-f3v5y-xzhw6-e5qwe-izqxw-v4kp7-53wkk-inon6-omaix-iae
+e.g. My principal id is: 
 
 
 3. Format and store it in a command line variable:
@@ -36,7 +52,7 @@ dfx canister id token
 
 2. Save canister ID into a command line variable:
 ```
-CANISTER_PUBLIC_KEY="principal \"$( \dfx canister id token )\"" rrkah-fqaaa-aaaaa-aaaaq-cai
+CANISTER_PUBLIC_KEY="principal \"$( \dfx canister id token )\"" 
 ```
 
 3. Check canister ID has been successfully saved:
