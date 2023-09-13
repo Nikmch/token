@@ -1,3 +1,6 @@
+Version that will work locally with out the need to deploy to the ICP.
+
+
 # Check your Balance
 
 1. Find out your principal id:
