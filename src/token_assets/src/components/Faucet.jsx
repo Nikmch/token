@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { token, canisterId, createActor } from "../../../declarations/token";
-import { AuthClient } from "@dfinity/auth-client";
+import { token } from "../../../declarations/token";
+// import { AuthClient } from "@dfinity/auth-client";
 
-function Faucet(props) {
+
+// need to add props to faucet function for auth
+function Faucet() {
 
   const [isDisabled, setDisabled] = useState(false);
 const [buttonText, setText] =useState("Gimme, Gimme");
@@ -10,16 +12,18 @@ const [buttonText, setText] =useState("Gimme, Gimme");
   async function handleClick(event) {
     setDisabled(true);
 
-    const authClient = await AuthClient.create();
-    const identity = await authClient.getIdentity();
+//     const authClient = await AuthClient.create();
+//     const identity = await authClient.getIdentity();
 
-const authenticatedCanister = createActor(canisterId, {
-  agentOptions: {
-    identity,
-  },
-});
+// const authenticatedCanister = createActor(canisterId, {
+//   agentOptions: {
+//     identity,
+//   },
+// });
+//     const result = await authenticatedCanister.payOut();
+//    swap this line for one below when implementing internet identity auth
 
-   const result = await authenticatedCanister.payOut();
+    const result = await token.payOut();
    setText(result);
   }
 
@@ -31,7 +35,7 @@ const authenticatedCanister = createActor(canisterId, {
         </span>
         Faucet
       </h2>
-      <label>Get your free NIKI tokens here! Claim 10,000 NIKI coins to your {props.userPrincipal}.</label>
+      <label>Get your free NIKI tokens here! Claim 10,000 NIKI coins to your account.</label>
       <p className="trade-buttons">
         <button disabled={isDisabled} id="btn-payout" onClick={handleClick}>
           {buttonText}

@@ -3,14 +3,14 @@ import Header from "./Header";
 import Faucet from "./Faucet";
 import Balance from "./Balance";
 import Transfer from "./Transfer";
-import { isPropertySignature } from "../../../../node_modules/typescript/lib/typescript";
+// import { isPropertySignature } from "../../../../node_modules/typescript/lib/typescript";
 
 function App() {
 
   return (
     <div id="screen">
       <Header />
-      <Faucet userPrincipal={props.loggedInPrincipal}/>
+      <Faucet />
       <Balance />
       <Transfer />
     </div>

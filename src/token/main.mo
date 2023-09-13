@@ -11,7 +11,7 @@ let symbol : Text = "NIKI";
 
 private stable var balanceEntries: [(Principal, Nat)] = [];
 
-private var balances = HashMap.HashMap<Principal, Nat>(1, Principal.equal, Principal.hash);
+var balances = HashMap.HashMap<Principal, Nat>(1, Principal.equal, Principal.hash);
 if(balances.size() < 1){
 balances.put(owner, totalSupply);
 };
@@ -29,10 +29,11 @@ return balance;
 public query func getSymbol() : async Text {symbol};
 
 public shared(msg) func payOut() : async Text {
-// Debug.print(debug_show(msg.caller));
+Debug.print(debug_show(msg.caller));
 if (balances.get(msg.caller) == null) {
 let amount = 10000;
 let result = await transfer(msg.caller, amount);
+return result;
 "Success";
 } else {
     "Already Claimed"
